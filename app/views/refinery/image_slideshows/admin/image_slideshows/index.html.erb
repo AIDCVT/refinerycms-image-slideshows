@@ -4,4 +4,4 @@
 <aside id='actions'>
   <%= render 'actions' %>
 </aside>
-<%= render '/refinery/admin/make_sortable', :tree => false if !searching? and ::Refinery::ImageSlideshows::Admin::ImageSlideshowsController.sortable? and ::Refinery::ImageSlideshows::ImageSlideshow.count > 1 %>
+<%= render '/refinery/admin/make_sortable', tree: false if !searching? and ::Refinery::ImageSlideshows::Admin::ImageSlideshowsController.sortable? and ::Refinery::ImageSlideshows::ImageSlideshow.count > 1 %>

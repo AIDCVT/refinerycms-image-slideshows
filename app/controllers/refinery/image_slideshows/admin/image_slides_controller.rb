@@ -4,12 +4,12 @@ module Refinery
       class ImageSlidesController < ::Refinery::AdminController
 
         crudify :'refinery/image_slideshows/image_slide',
-                :sortable => true,
-                :include => [:translations]
+                sortable: true,
+                include: [:translations]
 
-        before_filter :find_image_slideshow
-        before_filter :find_image_slides, only: :index
-        before_filter :find_image_slide, :except => [:index, :new]
+        before_action :find_image_slideshow
+        before_action :find_image_slides, only: :index
+        before_action :find_image_slide, except: [:index, :new]
 
         def create
           if Refinery::ImageSlideshows::ImageSlide.any?
@@ -19,23 +19,23 @@ module Refinery
           end
 
           if @image_slide.valid? && @image_slide.save
-            redirect_to image_slides_path, :notice => t('created', :scope => 'refinery.image_slideshows.admin.image_slides')
+            redirect_to image_slides_path, notice: t('created', scope: 'refinery.image_slideshows.admin.image_slides')
           else
-            render :action => :new
+            render action: :new
           end
         end
 
         def update
           if @image_slide.update_attributes(image_slide_params)
-            redirect_to image_slides_path, :notice => t('updated', :scope => 'refinery.image_slideshows.admin.image_slides')
+            redirect_to image_slides_path, notice: t('updated', scope: 'refinery.image_slideshows.admin.image_slides')
           else
-            render :action => :edit
+            render action: :edit
           end
         end
 
         def destroy
           if @image_slide.destroy
-            redirect_to image_slides_path, :notice => t('deleted', :scope => 'refinery.image_slideshows.admin.image_slides')
+            redirect_to image_slides_path, notice: t('deleted', scope: 'refinery.image_slideshows.admin.image_slides')
           end
         end
 

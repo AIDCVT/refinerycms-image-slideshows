@@ -3,11 +3,11 @@ module Refinery
     class ImageSlideshow < Refinery::Core::BaseModel
       self.table_name = 'refinery_image_slideshows'
 
-      acts_as_indexed :fields => [:title]
+      acts_as_indexed fields: [:title]
 
-      validates :title, :presence => true, :uniqueness => true
+      validates :title, presence: true, uniqueness: true
 
-      has_many :image_slides, :dependent => :destroy
+      has_many :image_slides, dependent: :destroy
     end
   end
 end
