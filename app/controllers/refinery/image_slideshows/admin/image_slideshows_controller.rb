@@ -3,7 +3,7 @@ module Refinery
     module Admin
       class ImageSlideshowsController < ::Refinery::AdminController
 
-        crudify :'refinery/image_slideshows/image_slideshow', :xhr_paging => true
+        crudify :'refinery/image_slideshows/image_slideshow'
 
         private
 
