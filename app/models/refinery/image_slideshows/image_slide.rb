@@ -1,6 +1,8 @@
 module Refinery
   module ImageSlideshows
     class ImageSlide < Refinery::Core::BaseModel
+      extend Mobility
+
       self.table_name = 'refinery_image_slides'
 
       translates :title, :caption, :link_url
